@@ -1,0 +1,17 @@
+{
+  "name": "trackit",
+  "displayName": "trackit",
+  "expo": {
+    "name": "trackit",
+    "slug": "trackit",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
