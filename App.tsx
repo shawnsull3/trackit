@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+
 export default function App() {
   return (
     <View style={styles.container}>
       {console.log('hi')}
-      <Text style={styles.text}>Suck a Dick...Colby :)</Text>
+      <Text style={styles.text}>What's upppp</Text>
     </View>
   );
 }
