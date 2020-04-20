@@ -6,7 +6,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       {console.log('hi')}
-      <Text style={styles.text}>Suck a Dick...Colby :)</Text>
+      <Text style={styles.text}>why won't this change??</Text>
+      <Navbar />
     </View>
   );
 }
