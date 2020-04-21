@@ -6,33 +6,55 @@ export class Signin extends Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      textInputValue: ''
     };
+    this.handleText = this.handleText.bind(this);
+  }
+
+  handleText(input) {
+    console.log(this.state.textInputValue);
+    console.log(input.toLowerCase());
+
+    this.setState({textInputValue: input});
   }
 
   render() {
     return (
       <View>
         <Text>Username</Text>
-        <TextInput placeholder='Username Here' />
+        <View style={styles.inputContainer}>
+          {console.log('in render', this.state.textInputValue)}
+          <TextInput 
+            value={this.state.textInputValue}
+            placeholder='Username Here' 
+            style={styles.input}
+            onChangeText={text => this.handleText(text)}
+          />
+          {console.log(this.state.username)}
+        </View>
         <Text>Password</Text>
-        <TextInput placeholder='Password Here' />
+        <View style={styles.inputContainer}>
+        <TextInput 
+            value={this.state.textInputValue}
+            placeholder='Password Here' 
+            style={styles.input}
+            onChangeText={text => this.handleText(text)}
+          />
+        </View>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  signinContainer: {
-    // flex: 1,
-    backgroundColor: '#fff',
-    alignSelf: 'stretch',
-    justifyContent: 'center',
+  input: {
+    backgroundColor: '#ffffff',
+    paddingLeft: 15,
+    paddingRight: 15
   },
-  signinText: {
-    color: 'blue',
-    fontSize: 30,
-    alignSelf: 'center',
+  inputContainer: {
+    borderWidth: 1
   }
 });
 
