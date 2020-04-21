@@ -9,14 +9,16 @@ export class Signin extends Component {
       password: '',
       textInputValue: ''
     };
-    this.handleText = this.handleText.bind(this);
+    this.handleUsername = this.handleUsername.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
   }
 
-  handleText(input) {
-    console.log(this.state.textInputValue);
-    console.log(input.toLowerCase());
+  handleUsername(input, formName) {
+    this.setState({password: input.toLowerCase()});
+  }
 
-    this.setState({textInputValue: input});
+  handlePassword(input) {
+    this.setState({password: input});
   }
 
   render() {
@@ -24,22 +26,21 @@ export class Signin extends Component {
       <View>
         <Text>Username</Text>
         <View style={styles.inputContainer}>
-          {console.log('in render', this.state.textInputValue)}
-          <TextInput 
-            value={this.state.textInputValue}
+          {console.log('in render', this.state.password)}
+          <TextInput
             placeholder='Username Here' 
             style={styles.input}
-            onChangeText={text => this.handleText(text)}
+            onChangeText={text => this.handleUsername(text)}
           />
           {console.log(this.state.username)}
         </View>
         <Text>Password</Text>
         <View style={styles.inputContainer}>
-        <TextInput 
-            value={this.state.textInputValue}
+          <TextInput 
+            secureTextEntry={true}
             placeholder='Password Here' 
             style={styles.input}
-            onChangeText={text => this.handleText(text)}
+            onChangeText={text => this.handlePassword(text)}
           />
         </View>
       </View>
