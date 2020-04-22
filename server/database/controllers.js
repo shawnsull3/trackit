@@ -19,7 +19,6 @@ const createDailyLog = async (dailyLog) => {
 }
 
 const getDailyLog = async (username) => {
-  console.log(username);
   return await DailyLog.find({ username: username });
 }
 
