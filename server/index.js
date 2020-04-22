@@ -19,9 +19,9 @@ app.get('/dailylog/:username', async (req, res) => {
   }
 });
 
-app.post('/dailylog/', async (req, res) => {
+app.post('/dailylog/:username', async (req, res) => {
   req.body.date = new Date();
-  console.log(req.body);
+//   req.body.date.setDate(req.body.date.getDate() - 8)
   try {
     await db.createDailyLog(req.body);
     res.sendStatus(201);
@@ -32,11 +32,16 @@ app.post('/dailylog/', async (req, res) => {
   }
 });
 
-app.put('/dailylog/', (req, res) => {
-    return db.updateDailyLog(req)
-      .then(results => res.sendStatus(204))
-      .catch(error => console.log(error));
-  });
+app.put('/dailylog/', async (req, res) => {
+  try {
+    await db.updateDailyLog(req.body);
+    res.sendStatus(204);
+  } 
+  catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+});
 
 app.listen(PORT, () => {
 console.log(`listening on port ${PORT}`);
