@@ -8,6 +8,10 @@ export class DailyLog extends React.Component {
     this.state = {};
   }
 
+  //Will need a Get request that grabs today's data
+  //Post / Put route to enter data into the database
+  //Allow user to view previous days to make updates
+
   render() {
     return (
       <View style={styles.container}>

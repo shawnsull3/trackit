@@ -8,6 +8,8 @@ export class Metrics extends React.Component {
     this.state = {};
   }
 
+  // Going to need a lot of get routes most likely
+
   render() {
     return (
         <View style={styles.container}>
