@@ -5,7 +5,8 @@ const DailyLog = require('./models');
 const db = mongoose.connection;
 
 // May want to have this called automatically at 12:01 am
-// then hve users update each field 
+// or could do it on app opening
+// then have users update each field 
 const createDailyLog = async (dailyLog) => {
   try {
     const newDailyLog = new DailyLog(dailyLog);

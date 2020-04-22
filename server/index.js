@@ -10,19 +10,26 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/dailylog/:username', async (req, res) => {
   try {
-    console.log('server', req.params.username)
     const dailyLog = await db.getDailyLog(req.params.username);
     res.send(dailyLog);
-  } catch (error) {
+  } 
+  catch (error) {
     console.log(error);
     res.sendStatus(400);
   }
 });
 
-app.post('/dailylog/', (req, res) => {
-  return db.addToDailyLog(req)
-    .then(results => res.sendStatus(201))
-    .catch(error => console.log(error));
+app.post('/dailylog/', async (req, res) => {
+  req.body.date = new Date();
+  console.log(req.body);
+  try {
+    await db.createDailyLog(req.body);
+    res.sendStatus(201);
+  } 
+  catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
 });
 
 app.put('/dailylog/', (req, res) => {

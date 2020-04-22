@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 const dailyLogSchema = mongoose.Schema({
     username: String,
+    date: Date,
     notes: String,
     creativeHours: Number,
     subjectiveFeel: Number,
