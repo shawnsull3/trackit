@@ -4,41 +4,10 @@ import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Navbar from './app/ui/Navbar';
 import Login from './app/ui/Login';
-
-function HomeScreen({ navigation }) {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Day" component={DayScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
-    </Tab.Navigator>
-  )
-}
-
-{/* <View style={styles.container}>
-<View style={styles.home}>
-  <Text style={styles.text}>Welcome to trackIt </Text>
-</View>
-<Navbar />
-</View> */}
-
-function DayScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Day Screen...oooAAAAHHHHHH!</Text>
-      <Text>FIGHTER OF THE NIGHT SCREEN... oooAAAHHH!</Text>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+import DailyLog from './app/ui/DailyLog/DailyLog';
+import Metrics from './app/ui/Metrics/Metrics';
+import Settings from './app/ui/Settings/Settings';
 
 function LoginScreen({ navigation }) {
   return (
@@ -51,6 +20,27 @@ function LoginScreen({ navigation }) {
         </TouchableOpacity>
       </View>
     </View>
+  )
+}
+
+function HomeScreen() {
+  return (
+    <Tab.Navigator
+      tabBarOptions={{
+      activeTintColor: '#01BAEF',
+      inactiveTintColor: 'gray',
+      labelStyle: {
+        fontSize: 20,
+      },
+      style: {
+        backgroundColor: '#2A2D34',
+      },
+      }}
+    >
+      <Tab.Screen name="Daily Log" component={DailyLog} />
+      <Tab.Screen name="Metrics" component={Metrics} />
+      <Tab.Screen name="Settings" component={Settings} />
+    </Tab.Navigator>
   )
 }
 
