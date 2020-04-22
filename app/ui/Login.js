@@ -25,13 +25,11 @@ export class Login extends Component {
       <View>
         <Text>Username</Text>
         <View style={styles.inputContainer}>
-          {console.log('in render', this.state.password)}
           <TextInput
             placeholder='Username Here' 
             style={styles.input}
             onChangeText={text => this.handleUsername(text)}
           />
-          {console.log(this.state.username)}
         </View>
         <Text>Password</Text>
         <View style={styles.inputContainer}>
