@@ -1,16 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('./database/models');
+const db = require('./database/controllers');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
- 
-app.get('/dailylog/', async (req, res) => {
+
+app.get('/dailylog/:username', async (req, res) => {
   try {
-    const dailyLog = await db.getDailyLog(req);
+    console.log('server', req.params.username)
+    const dailyLog = await db.getDailyLog(req.params.username);
     res.send(dailyLog);
   } catch (error) {
     console.log(error);

@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/');
-import DailyLog from './models';
+mongoose.connect('mongodb://localhost/trackit', { useNewUrlParser: true, useUnifiedTopology: true });
+const DailyLog = require('./models');
 
 const db = mongoose.connection;
 
 // May want to have this called automatically at 12:01 am
-// then hve users update each field
+// then hve users update each field 
 const createDailyLog = async (dailyLog) => {
   try {
     const newDailyLog = new DailyLog(dailyLog);
@@ -18,6 +18,7 @@ const createDailyLog = async (dailyLog) => {
 }
 
 const getDailyLog = async (username) => {
+  console.log(username);
   return await DailyLog.find({ username: username });
 }
 

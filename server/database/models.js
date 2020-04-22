@@ -10,6 +10,6 @@ const dailyLogSchema = mongoose.Schema({
     sleep: Number,
 });
 
-const DailyLog = mongoose.model('DailyLog', dailyLogSchema, 'dailyLog');
+const DailyLog = mongoose.model('dailyLogs', dailyLogSchema, 'dailyLogs');
 
 module.exports = DailyLog;
