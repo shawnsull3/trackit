@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 const dailyLogSchema = mongoose.Schema({
+    username: String,
     notes: String,
     creativeHours: Number,
     subjectiveFeel: Number,
@@ -9,6 +10,6 @@ const dailyLogSchema = mongoose.Schema({
     sleep: Number,
 });
 
-const dailyLog = mongoose.model('dailyLog', dailyLogSchema);
+const DailyLog = mongoose.model('DailyLog', dailyLogSchema, 'dailyLog');
 
-module.exports = dailyLog;
+module.exports = DailyLog;
