@@ -8,10 +8,14 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
  
-app.get('/dailylog/', (req, res) => {
-  return db.getDailyLog(req)
-    .then(results => res.send(results))
-    .catch(error => console.log(error));
+app.get('/dailylog/', async (req, res) => {
+  try {
+    const dailyLog = await db.getDailyLog(req);
+    res.send(dailyLog);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
 });
 
 app.post('/dailylog/', (req, res) => {
