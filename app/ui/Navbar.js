@@ -12,14 +12,15 @@ const Navbar = () => {
 const styles = StyleSheet.create({
     navContainer: {
       flex: 1,
-      backgroundColor: 'red',
+      backgroundColor: '#2A2D34',
       alignSelf: 'stretch',
       justifyContent: 'center',
-      marginBottom: 40,
+    //   marginBottom: 10,
     },
     navText: {
-      color: 'blue',
+      color: '#fff',
       fontSize: 30,
+      fontWeight: 'bold',
       alignSelf: 'center',
     }
 });
