@@ -75,7 +75,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FBFBFF',
     alignItems: 'center',
     justifyContent: 'center',
-    // marginTop: 40,
   },
   home: {
     flex: 10,
