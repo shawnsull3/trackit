@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     borderWidth: 1,
-    width: 150, 
+    width: 150,
+    margin: 10, 
   }
 });
 
