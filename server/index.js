@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/dailylog/:username', async (req, res) => {
   try {
-    const dailyLog = await db.getDailyLog(req.params.username);
+    const dailyLog = await db.getAllDailyLogs(req.params.username);
     res.send(dailyLog);
   } 
   catch (error) {
@@ -19,8 +19,7 @@ app.get('/dailylog/:username', async (req, res) => {
   }
 });
 
-app.post('/dailylog/:username', async (req, res) => {
-  req.body.date = new Date();
+app.post('/dailylog/', async (req, res) => {
 //   req.body.date.setDate(req.body.date.getDate() - 8)
   try {
     await db.createDailyLog(req.body);

@@ -39,15 +39,25 @@ export class DailyLog extends React.Component {
     }
   }
 
-  postLog() {
-    console.log(this.state);
-    let dateCheck = new Date()
-    if (this.state.date.setHours(0,0,0,0) === dateCheck.setHours(0,0,0,0)) {
-      console.log('equal')
-      // put 
-    } else {
-      // post
-    }
+  async postLog() {
+    const {username, date, notes, sleep, creativeHours, subjectiveFeel, read, workout }= this.state;
+    let dailylog = {
+      username,
+      date,
+      notes,
+      sleep,
+      creativeHours,
+      subjectiveFeel,
+      read,
+      workout
+    };
+    try {
+      const res = await axios.post('http://localhost:3000/dailylog/', dailylog);
+      console.log(res.status);
+    } 
+    catch (error) {
+      console.log(error);
+    } 
   }
 
 
@@ -156,3 +166,11 @@ const styles = StyleSheet.create({
 });
 
 export default DailyLog;
+
+// let dateCheck = new Date()
+//     if (this.state.date.setHours(0,0,0,0) === dateCheck.setHours(0,0,0,0)) {
+//       console.log('equal')
+//       // put 
+//     } else {
+//       // post
+//     }
