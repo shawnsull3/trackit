@@ -11,19 +11,11 @@ import Settings from './app/ui/Settings/Settings';
 
 function LoginScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <View style={styles.home}>
-        <Text style={styles.text}>Please login</Text>
-        <Login />
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Text>Login</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <Login navigation={navigation}/>
   )
 }
 
-function HomeScreen() {
+function HomeScreen({ route }) {
   return (
     <Tab.Navigator
       tabBarOptions={{

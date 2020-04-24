@@ -18,8 +18,12 @@ const createDailyLog = async (dailyLog) => {
   }
 }
 
-const getDailyLog = async (username) => {
+const getAllDailyLogs = async (username) => {
   return await DailyLog.find({ username: username });
+}
+
+const getTodaysLog = async (username) => {
+    return await DailyLog.find({ username: username });
 }
 
 
@@ -33,5 +37,6 @@ db.once('open', () => {
 
 module.exports = {
   createDailyLog,
-  getDailyLog
+  getAllDailyLogs,
+  getTodaysLog
 }

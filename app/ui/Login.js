@@ -1,5 +1,6 @@
+import 'react-native-gesture-handler';
 import React, { Component } from 'react'
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 
 export class Login extends Component {
   constructor(props){
@@ -13,7 +14,7 @@ export class Login extends Component {
   }
 
   handleUsername(input) {
-    this.setState({password: input.toLowerCase()});
+    this.setState({username: input.toLowerCase()});
   }
 
   handlePassword(input) {
@@ -21,24 +22,36 @@ export class Login extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
+    const { username } = this.state;
+
     return (
-      <View>
-        <Text>Username</Text>
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder='Username Here' 
-            style={styles.input}
-            onChangeText={text => this.handleUsername(text)}
-          />
-        </View>
-        <Text>Password</Text>
-        <View style={styles.inputContainer}>
-          <TextInput 
-            secureTextEntry={true}
-            placeholder='Password Here' 
-            style={styles.input}
-            onChangeText={text => this.handlePassword(text)}
-          />
+      <View style={styles.container}>
+        <View style={styles.home}>
+          <Text style={styles.text}>Please login</Text>
+          <Text>Username</Text>
+          <View style={styles.inputContainer}>
+            <TextInput
+              placeholder='Username Here' 
+              style={styles.input}
+              onChangeText={text => this.handleUsername(text)}
+            />
+          </View>
+          <Text>Password</Text>
+          <View style={styles.inputContainer}>
+            <TextInput 
+              secureTextEntry={true}
+              placeholder='Password Here' 
+              style={styles.input}
+              onChangeText={text => this.handlePassword(text)}
+            />
+          </View>
+          <TouchableOpacity onPress={() => navigation.navigate('Home', {
+            screen: 'Daily Log',
+            params: {username: username},
+          })}>
+            <Text>Login</Text>
+          </TouchableOpacity>
         </View>
       </View>
     )
@@ -53,7 +66,18 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     borderWidth: 1,
-    width: 150, 
+    width: 150,
+    margin: 10, 
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#FBFBFF',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    color: '#01BAEF',
+    fontSize: 30,
   }
 });
 

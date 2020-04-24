@@ -8,9 +8,21 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/dailylog/:username', async (req, res) => {
+app.get('/dailylog/:username/all', async (req, res) => {
   try {
-    const dailyLog = await db.getDailyLog(req.params.username);
+    const dailyLogs = await db.getAllDailyLogs(req.params.username);
+    console.log(dailyLogs);
+    res.send(dailyLogs);
+  } 
+  catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+});
+
+app.get('/dailylog/:username/', async (req, res) => {
+  try {
+    const dailyLog = await db.getTodaysLog(req.params.username);
     res.send(dailyLog);
   } 
   catch (error) {
@@ -19,8 +31,7 @@ app.get('/dailylog/:username', async (req, res) => {
   }
 });
 
-app.post('/dailylog/:username', async (req, res) => {
-  req.body.date = new Date();
+app.post('/dailylog/', async (req, res) => {
 //   req.body.date.setDate(req.body.date.getDate() - 8)
   try {
     await db.createDailyLog(req.body);
