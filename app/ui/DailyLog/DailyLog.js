@@ -168,11 +168,3 @@ const styles = StyleSheet.create({
 });
 
 export default DailyLog;
-
-// let dateCheck = new Date()
-//     if (this.state.date.setHours(0,0,0,0) === dateCheck.setHours(0,0,0,0)) {
-//       console.log('equal')
-//       // put 
-//     } else {
-//       // post
-//     }
