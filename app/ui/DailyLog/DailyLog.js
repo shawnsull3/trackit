@@ -8,6 +8,7 @@ export class DailyLog extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      username: '',
       date: new Date(),
       notes: '',
       sleep: null,
@@ -20,10 +21,10 @@ export class DailyLog extends React.Component {
     this.handleText = this.handleText.bind(this);
   }
 
-  //Will need a Get request that grabs today's data
-  //Post / Put route to enter data into the database
-  //Allow user to view previous days to make updates
-
+  componentDidMount() {
+    const username = this.props.route.params.username;
+    this.setState({username})
+  }
 
   handleText(event) {
     const { name, text, type } = event
