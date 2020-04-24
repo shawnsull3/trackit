@@ -16,9 +16,6 @@ function LoginScreen({ navigation }) {
 }
 
 function HomeScreen({ route }) {
-  console.log('home:', route.params)
-  // navigation.setParams({username: route.params.username})
-
   return (
     <Tab.Navigator
       tabBarOptions={{

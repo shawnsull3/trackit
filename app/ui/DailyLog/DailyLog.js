@@ -24,6 +24,8 @@ export class DailyLog extends React.Component {
   componentDidMount() {
     const username = this.props.route.params.username;
     this.setState({username})
+
+    //eventually make axios getTodaysLog call
   }
 
   handleText(event) {
