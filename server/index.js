@@ -10,8 +10,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/dailylog/:username/all', async (req, res) => {
   try {
-    const dailyLog = await db.getAllDailyLogs(req.params.username);
-    res.send(dailyLog);
+    const dailyLogs = await db.getAllDailyLogs(req.params.username);
+    console.log(dailyLogs);
+    res.send(dailyLogs);
   } 
   catch (error) {
     console.log(error);
