@@ -47,7 +47,7 @@ export class Metrics extends React.Component {
         </View>
         <View style={styles.chart}>
           <View style={styles.container}>
-            <Text style={styles.chartTitles}>Subject Feeling</Text>
+            <Text style={styles.chartTitles}>Subjective Feeling</Text>
           </View>
           <LineCharts logData={dailyLogData} target={'subjectiveFeel'}/>
         </View>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     percentTitles: {
       color: '#01BAEF',
       fontSize: 20,
-      justifyContent: 'flex-start'
+      justifyContent: 'flex-start',
     },
     percents: {
       color: '#01BAEF',
