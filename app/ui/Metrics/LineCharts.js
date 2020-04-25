@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
 import { LineChart, Path, Grid } from 'react-native-svg-charts';
 
 const LineCharts = ({ logData, target}) => {
     const data = []
     logData.map(log => data.push(log[target]));
+    // console.log(data)
     
     const Shadow = ({ line }) => (
       <Path
@@ -13,7 +13,7 @@ const LineCharts = ({ logData, target}) => {
         d={line}
         fill={'none'}
         strokeWidth={4}
-        stroke={'rgba(134, 65, 244, 0.2)'}
+        stroke={'#01BAEF'}
       />
     )
     
@@ -21,7 +21,7 @@ const LineCharts = ({ logData, target}) => {
       <LineChart
         style={{ height: 200 }}
         data={data}
-        svg={{ stroke: 'rgb(134, 65, 244)' }}
+        svg={{ stroke: '#01BAEF' }}
         contentInset={{ top: 20, bottom: 20 }}
       >
         <Grid />
