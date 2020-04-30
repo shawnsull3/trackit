@@ -37,19 +37,19 @@ export class Metrics extends React.Component {
           <View style={styles.container}>
             <Text style={styles.chartTitles}>Hours of Sleep</Text>
           </View>
-          <LineCharts logData={dailyLogData} target={'sleep'}/>
+          <LineCharts logData={dailyLogData} target={'sleep'} yMin={0}/>
         </View>
         <View style={styles.chart}>
           <View style={styles.container}>
             <Text style={styles.chartTitles}>Hours of Creative Work</Text>
           </View>
-          <LineCharts logData={dailyLogData} target={'creativeHours'}/>
+          <LineCharts logData={dailyLogData} target={'creativeHours'} yMin={0}/>
         </View>
         <View style={styles.chart}>
           <View style={styles.container}>
             <Text style={styles.chartTitles}>Subjective Feeling</Text>
           </View>
-          <LineCharts logData={dailyLogData} target={'subjectiveFeel'}/>
+          <LineCharts logData={dailyLogData} target={'subjectiveFeel'} yMin={0}/>
         </View>
         <View style={{flexDirection:"row"}}>
             <View style={{flex:2}}>

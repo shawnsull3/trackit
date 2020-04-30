@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChart, Path, Grid } from 'react-native-svg-charts';
 
-const LineCharts = ({ logData, target}) => {
+const LineCharts = ({ logData, target, yMin}) => {
     const data = []
     logData.map(log => data.push(log[target]));
     // console.log(data)
@@ -23,6 +23,7 @@ const LineCharts = ({ logData, target}) => {
         data={data}
         svg={{ stroke: '#01BAEF' }}
         contentInset={{ top: 20, bottom: 20 }}
+        yMin={yMin}
       >
         <Grid />
         <Shadow/>
