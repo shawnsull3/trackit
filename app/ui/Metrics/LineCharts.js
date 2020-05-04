@@ -1,11 +1,19 @@
 import React from 'react';
-import { LineChart, Path, Grid } from 'react-native-svg-charts';
+import { LineChart, Path, Grid, YAxis, XAxis } from 'react-native-svg-charts';
+import { View } from 'react-native'
 
 const LineCharts = ({ logData, target, yMin}) => {
-    const data = []
+    const data = [];
+    const xAxis = [];
     logData.map(log => data.push(log[target]));
-    // console.log(data)
-    
+    console.log(data)
+    logData.map(log => xAxis.push(log.date));
+    console.log(xAxis);
+
+    const axesSvg = { fontSize: 10, fill: 'grey' };
+    const verticalContentInset = { top: 10, bottom: 10 }
+    const xAxisHeight = 30
+
     const Shadow = ({ line }) => (
       <Path
         key={'shadow'}
@@ -18,16 +26,34 @@ const LineCharts = ({ logData, target, yMin}) => {
     )
     
     return (
-      <LineChart
-        style={{ height: 200 }}
-        data={data}
-        svg={{ stroke: '#01BAEF' }}
-        contentInset={{ top: 20, bottom: 20 }}
-        yMin={yMin}
-      >
-        <Grid />
-        <Shadow/>
-      </LineChart>
+      <View style={{ height: 200, padding: 5, flexDirection: 'row' }}>
+        <YAxis
+            data={data}
+            style={{ marginBottom: xAxisHeight }}
+            contentInset={verticalContentInset}
+            svg={axesSvg}
+            numberOfTicks={5}
+        />
+        <View style={{ flex: 1, marginLeft: 10 }}>
+            <LineChart
+                style={{ flex: 1 }}
+                data={data}
+                contentInset={verticalContentInset}
+                svg={{ stroke: '#01BAEF' }}
+                // yMin={yMin}
+            >
+                <Grid/>
+                <Shadow/>
+            </LineChart>
+            <XAxis
+                style={{ marginHorizontal: -10, height: xAxisHeight }}
+                data={xAxis}
+                formatLabel={(value, index) => index}
+                contentInset={{ left: 10, right: 10 }}
+                svg={axesSvg}
+            />
+        </View>
+      </View>
     )   
 }
 
