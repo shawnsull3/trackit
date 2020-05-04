@@ -4,11 +4,11 @@ import { View } from 'react-native'
 
 const LineCharts = ({ logData, target, yMin}) => {
     const data = [];
-    const xScale = [];
+    const xAxis = [];
     logData.map(log => data.push(log[target]));
     console.log(data)
-    logData.map(log => xScale.push(log.date));
-    console.log(xScale);
+    logData.map(log => xAxis.push(log.date));
+    console.log(xAxis);
 
     const axesSvg = { fontSize: 10, fill: 'grey' };
     const verticalContentInset = { top: 10, bottom: 10 }
@@ -47,7 +47,7 @@ const LineCharts = ({ logData, target, yMin}) => {
             </LineChart>
             <XAxis
                 style={{ marginHorizontal: -10, height: xAxisHeight }}
-                data={xScale}
+                data={xAxis}
                 formatLabel={(value, index) => index}
                 contentInset={{ left: 10, right: 10 }}
                 svg={axesSvg}
