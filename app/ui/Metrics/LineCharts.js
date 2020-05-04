@@ -32,6 +32,7 @@ const LineCharts = ({ logData, target, yMin}) => {
             style={{ marginBottom: xAxisHeight }}
             contentInset={verticalContentInset}
             svg={axesSvg}
+            numberOfTicks={5}
         />
         <View style={{ flex: 1, marginLeft: 10 }}>
             <LineChart
@@ -46,7 +47,7 @@ const LineCharts = ({ logData, target, yMin}) => {
             </LineChart>
             <XAxis
                 style={{ marginHorizontal: -10, height: xAxisHeight }}
-                data={data}
+                data={xScale}
                 formatLabel={(value, index) => index}
                 contentInset={{ left: 10, right: 10 }}
                 svg={axesSvg}
